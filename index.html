@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>myMemoPad</title>
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/color_set.js"></script>
+    <link rel="stylesheet" href="css/sample.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>JS原始機</h1>
+    </header>
+<!--経糸の選択-->
+<section id="Warp">
+    <h2>経糸の本数を選んでください</h2>
+    <div id="Warplength">
+
+
+    </div>
+
+    <h2>経糸の色を選んでください</h2>
+    <div id="WarpColor">
+    <div id="WarpColorSet"></div> 
+        <div id="WarpColorAddbtn">経糸を追加</div>
+        <div id="WarpColorBSbtn">1本戻る</div>
+        <div id="WarpColorResetbtn">リセット</div>
+    </div>
+</section>
+<section id="Weft">
+<!--緯糸の選択-->
+<h2>緯糸の色を選んでください。緯糸は一色です。
+</h2>
+<div id="WeftColor">
+    <ul name="色名" id="WeftColorCode">
+        <li value="#ee827c">甚三紅 じんざもみ</li>           
+        <li value="#ad7d4c">香染 こうぞめ</li>
+        <li value="#56564b">藍海松茶 あいみるちゃ</li>          
+    </ul>
+    <div id="WeftColorAddbtn">経糸を追加</div>
+    <div id="WeftColorBSbtn">1本戻る</div>
+    <div id="WeftColorResetbtn">リセット</div>
+</div>
+</section>
+<section id="Heddle">
+<!--綜絖の選択-->
+    <h2>heddle0</h2>
+    <div id="heddle0"></div>
+    <h2>heddle1</h2>
+    <div id="heddle1"></div>
+    <!-- <h2>heddle2</h2>
+    <div id="heddle2"></div> -->
+<!--緯糸の繰り返しの回数-->
+    <h2>長さの設定</h2>
+    <div id="ClothLength"></div>
+    <div id="WeftColorAddbtn">布の長さを設定</div>
+</section>
+<section id="CheckList">
+
+
+</section>
+<section id="Result">
+<!--結果表示-->
+    <h2>あなたの作ったパターンです</h2>
+
+    <main style="display: none;">
+        <textarea id="text_area"></textarea>
+        <ul>
+            <li id="run">実行</li>
+            <li id="save">保存</li>
+            <li id="clear">削除</li>
+        </ul>
+
+   
+    </main>
+</section>
+    <footer><small>JAPAN TEXTILE NEWS</small></footer>
+  
+    <script>
+
+
+
+
+
+////平織　
+
+
+//経糸の色の定義
+
+ let WarpColor =""
+
+//模様の最小ピースの定義
+const plain_piece1 = ["|","-"];
+const plain_piece2 = ["〇","●"];
+
+//経糸緯糸のボリュームの定義
+let WarpSet = "20";　/*経糸*/
+let WeftSet ="40";　/*緯糸*/
+
+//綜絖の展開
+
+    //経糸にあわせて最小ピースを繰り返す回数を定義
+let heddle_WarpSet_Loop = WarpSet/plain_piece1.length;
+
+//綜絖の展開
+let heddle1 = "";
+let heddle2 = "";
+for(let i=0; i<20; i++){
+    heddle1 +=  plain_piece1[0] + plain_piece1[1] ;
+}
+
+for(let i=0; i<20; i++){
+heddle2 += plain_piece1[1] + plain_piece1[0];
+ }
+//綜絖1の表示
+$("#heddle1").html(heddle1);
+
+//綜絖2の表示
+$("#heddle2").html(heddle2);
+
+
+
+
+   </script>
+  
+  
+  <script>
+
+
+
+
+
+
+///**下記メモパッド原型
+
+        $("main").slideDown(500);
+
+        //1.Save クリックイベント
+        
+        $("#save").on("click",function(){
+        const value = $("#text_area").val();
+        localStorage.setItem("memo",value);
+        alert("保存しました");
+        });
+
+        //2.clear クリックイベント
+
+        $("#clear").on("click",function(){
+        localStorage.removeItem("memo");
+        alert("削除しました");
+        $("#text_area").val("");
+        });
+
+        //3.ページ読み込み：保存データ取得表示
+        if(localStorage.getItem("memo")){
+            const value =localStorage.getItem("memo")
+            $("#text_area").val(value);
+        }
+
+
+
+        //ロード時に表示
+        //※こんなこともできる例
+    </script>
+</body>
+
+</html>

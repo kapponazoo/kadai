@@ -16,10 +16,13 @@
     </header>
 <!--経糸の選択-->
 <section id="Warp">
-    <h2>経糸の本数を選んでください</h2>
+    <h2>経糸の本数を設定してください</h2>
     <div id="Warplength">
-
-
+        <div id="WarplengthCount">3</div>
+        <a class="btn btn-border" id="WarplengthBtn"><span>PUSH！</span></a>
+    <ul id="WarplengthSample">
+<li style="color: #CCCCCC;">縦</li>
+    </ul>
     </div>
 
     <h2>経糸の色を選んでください</h2>
@@ -86,6 +89,29 @@
 
 
 ////平織　
+
+
+//経糸の本数の定義
+let WarplengthCount ="0";
+
+let i = 2;
+let WarplengthLine =['縦0','縦1','縦2'];
+let heddleli = `<li style="color: #CCCCCC; id="cell0">${WarplengthLine[0]}</li>
+<li style="color: #CCCCCC; id="cell1">${WarplengthLine[1]}</li>
+<li style="color: #CCCCCC; id="cell2">${WarplengthLine[2]}</li>`;
+
+let cellId="";
+$("#WarplengthBtn").on("click",function(){
+        i++;
+        $("#WarplengthCount").html(i);
+        WarplengthLine.push('縦'+i);
+        cellId = 'cell'+i;
+         console.log(WarplengthLine);
+         console.log(WarplengthLine[i]);
+         heddleli += `<li style="color: #CCCCCC; id="cellId">${WarplengthLine[i]}</li>`
+         console.log(heddleli);
+         $("#WarplengthSample").html(heddleli);
+})
 
 
 //経糸の色の定義

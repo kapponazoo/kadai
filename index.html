@@ -17,7 +17,7 @@
 <!--経糸の選択-->
 <section id="ColorSet">
     <h2>配色セットを選んでください</h2>
-    <p>(この部分は未実装ですがオブジェクトを利用して作ったので残しておきました)</p>
+    <p>(この部分は未完成ですがオブジェクトを利用して作ったので残しておきました)</p>
     <div id="ColorSet">
         <a class="btn btn-border" id="ColorSetBtnNomal"><span>標準セット</span></a>
         <a class="btn btn-border" id="ColorSetBtnWarm"><span>暖色セット</span></a>
@@ -69,8 +69,7 @@
 
 <div id="ResultBtn">
     <a class="btn btn-border" id="WarpColorSetBtn"><span>平織</span></a>
-</div> 
-<div id="ResultAyaBtn">
+
     <a class="btn btn-border" id="WarpColorSetBtn2"><span>綾織</span></a>
 </div> 
 
@@ -315,7 +314,7 @@ let heddle3 = "";
 
 //平織の表示
 
-$("#ResultBtn span").on("click",function(){
+$("#WarpColorSetBtn span").on("click",function(){
 heddle0 = "";
 heddle1 = "";
 heddle2 = "";
@@ -355,7 +354,7 @@ $("#text_area").html(csscode + Result);
 
 //綾織の表示
 
-$("#ResultAyaBtn span").on("click",function(){
+$("#WarpColorSetBtn2 span").on("click",function(){
     heddle0 = "";
 heddle1 = "";
 heddle2 = "";

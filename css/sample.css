@@ -20,7 +20,6 @@ footer{
 }
 p{
     font-size:1em;
-    text-align: center;
     border-bottom:1px solid #fff;
     height:1.6em;
 }
@@ -43,12 +42,11 @@ li:hover{
     color:#fff;
 }
 textarea{
-  color:#666;
+  color:cornflowerblue;
   margin: 3%;
   width: 95%;
   height: 230px;
   font-size:80%;
-  background-color: cadetblue;
   box-shadow: 3px 3px 3px 3px #555;
 }
 
@@ -90,6 +88,7 @@ button.btn {
   letter-spacing: 0.1em;
   color: #212529;
   border-radius: 0.5rem;
+  margin: 0.5em;
 }
 
 a.btn-border {
@@ -170,4 +169,12 @@ a.btn-border:active {
 
 a.btn-border:active:before {
   bottom: -1px;
+}
+
+#WarpColorResult span , #WeftColorResult span{
+  display:block;
+  margin:1em auto;
+  width: 80%;
+  text-align: center;
+  line-height: 3em;
 }

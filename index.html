@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>myMemoPad</title>
     <script src="js/jquery-2.1.3.min.js"></script>
-    <script src="js/color_set.js"></script>
+    <script src="js/color_set.js" id="ColorSetFile"></script>
     <link rel="stylesheet" href="css/sample.css">
 </head>
 
@@ -15,8 +15,20 @@
         <h1>JS原始機</h1>
     </header>
 <!--経糸の選択-->
+<section id="ColorSet">
+    <h2>配色セットを選んでください</h2>
+    <p>(この部分は未実装ですが配列を利用して作ったので残しておきました)</p>
+    <div id="ColorSet">
+        <a class="btn btn-border" id="ColorSetBtnNomal"><span>標準セット</span></a>
+        <a class="btn btn-border" id="ColorSetBtnWarm"><span>暖色セット</span></a>
+    </div>   
+</section>
+
+
 <section id="Warp">
-    <h2>経糸の本数を設定してください(この部分は未実装ですが配列を利用して作ったので残しておきました)</h2>
+    <h2>経糸の本数を設定してください</h2>
+
+    <p>(この部分は未実装ですが配列を利用して作ったので残しておきました)</p>
     <div id="Warplength">
         <div id="WarplengthCount">3</div>
         <a class="btn btn-border" id="WarplengthBtn"><span>PUSH！</span></a>
@@ -56,9 +68,11 @@
 <h2>綜絖の設定</h2>
 
 <div id="ResultBtn">
-    <a class="btn btn-border" id="WarpColorSetBtn"><span>結果を表示</span></a>
+    <a class="btn btn-border" id="WarpColorSetBtn"><span>平織</span></a>
 </div> 
-
+<div id="ResultAyaBtn">
+    <a class="btn btn-border" id="WarpColorSetBtn2"><span>綾織</span></a>
+</div> 
 
     <h3>heddle0</h3>
     <div id="heddle0"></div>
@@ -102,6 +116,21 @@
 
 
 ////平織　
+
+//配色セットの切り替え
+
+let ColorSetFile = "";
+let ColorSetArray = "" ;
+
+$("#ColorSetBtnNomal").on("click",function(){
+    $("#ColorSetFile").attr("src", "js/color_set.js");
+
+
+});
+$("#ColorSetBtnWarm").on("click",function(){
+    $("#ColorSetFile").attr("src", "js/color_set_warm.js");
+
+});
 
 
 //経糸の本数の定義
@@ -271,12 +300,6 @@ let heddle2 = "";
 let heddle3 = "";
 
 
-for(let i=0; i<10; i++){
-    heddle0 +=  plain_piece1[0] + plain_piece1[1] ;
-    heddle1 +=  plain_piece1[1] + plain_piece1[0] ;
-    heddle2 +=  plain_piece1[0] + plain_piece1[1] ;
-    heddle3 +=  plain_piece1[1] + plain_piece1[0] ;
-}
 
 // for(let i=0; i<10; i++){
 
@@ -290,9 +313,18 @@ for(let i=0; i<10; i++){
     
 // }
 
-//綜絖0の表示
+//平織の表示
 
 $("#ResultBtn span").on("click",function(){
+heddle0 = "";
+heddle1 = "";
+heddle2 = "";
+heddle3 = "";
+for(let i=0; i<10; i++){
+    heddle0 +=  plain_piece1[0] + plain_piece1[1] ;
+    heddle1 +=  plain_piece1[1] + plain_piece1[0] ;
+
+}
 $("#heddle0").html(heddle0);
 
 //綜絖1の表示
@@ -308,26 +340,59 @@ $("#heddle3").html(heddle3);
 let Result = "";
 for(let i=0; i<3; i++){
 
-    Result += heddle0 + "<br>" + heddle1 + "<br>" + heddle2 + "<br>" + heddle3 + "<br>" 
-    ;
+    Result += heddle0 + "<br>" + heddle1 + "<br>";
 }
 
 let csscode =""
 csscode = "<style>#color01{background-color:" + WarpColor + ";} #color02{background-color:" + WeftColor + ";}</style>"
     
 
-$("#text_area").html(csscode + Result);
+
 $("#ResultPattern").html(csscode + Result);
+$("#text_area").html(csscode + Result);
+
 });
-   </script>
-  
-  
-  <script>
 
+//綾織の表示
 
-
-
-
+$("#ResultAyaBtn span").on("click",function(){
+    heddle0 = "";
+heddle1 = "";
+heddle2 = "";
+heddle3 = "";   
+    for(let i=0; i<10; i++){
+        heddle0 +=  plain_piece1[0] + plain_piece1[1] + plain_piece1[1] ;
+        heddle1 +=  plain_piece1[1] + plain_piece1[1] + plain_piece1[0] ;
+        heddle2 +=  plain_piece1[1] + plain_piece1[0] + plain_piece1[1];
+        
+    }
+    $("#heddle0").html(heddle0);
+    
+    //綜絖1の表示
+    $("#heddle1").html(heddle1);
+    
+    //綜絖2の表示
+    $("#heddle2").html(heddle2);
+    
+   
+    
+    
+    let Result = "";
+    for(let i=0; i<3; i++){
+    
+        Result += heddle0 + "<br>" + heddle1 + "<br>" + heddle2 + "<br>" 
+        ;
+    }
+    
+    let csscode =""
+    csscode = "<style>#color01{background-color:" + WarpColor + ";} #color02{background-color:" + WeftColor + ";}</style>"
+        
+    
+    
+    $("#ResultPattern").html(csscode + Result);
+    $("#text_area").html(csscode + Result);
+    
+    });
 
 ///**下記メモパッド原型
 

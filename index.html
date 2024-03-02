@@ -55,6 +55,11 @@
 
 <h2>綜絖の設定</h2>
 
+<div id="ResultBtn">
+    <a class="btn btn-border" id="WarpColorSetBtn"><span>結果を表示</span></a>
+</div> 
+
+
     <h3>heddle0</h3>
     <div id="heddle0"></div>
     <h3>heddle1</h3>
@@ -247,7 +252,7 @@ $("#WeftColorCell7 span").on("click",function(){
 
 
 //模様の最小ピースの定義
-let plain_piece1 = [ '<span id="color01">■</span>' , '<span id="color02">■</span>'];
+let plain_piece1 = [ '<span id="color01">　</span>' , '<span id="color02">　</span>'];
 
 //経糸緯糸のボリュームの定義
 let WarpSet = "20";　/*経糸*/
@@ -286,6 +291,8 @@ for(let i=0; i<10; i++){
 // }
 
 //綜絖0の表示
+
+$("#ResultBtn span").on("click",function(){
 $("#heddle0").html(heddle0);
 
 //綜絖1の表示
@@ -299,12 +306,19 @@ $("#heddle3").html(heddle3);
 
 
 let Result = "";
-for(let i=0; i<20; i++){
+for(let i=0; i<3; i++){
 
-    Result += heddle0 + "<br>" + heddle1 + "<br>" + heddle2 + "<br>" + heddle3 + "<br>" ;
+    Result += heddle0 + "<br>" + heddle1 + "<br>" + heddle2 + "<br>" + heddle3 + "<br>" 
+    ;
 }
-$("#text_area").html(Result);
 
+let csscode =""
+csscode = "<style>#color01{background-color:" + WarpColor + ";} #color02{background-color:" + WeftColor + ";}</style>"
+    
+
+$("#text_area").html(csscode + Result);
+$("#ResultPattern").html(csscode + Result);
+});
    </script>
   
   

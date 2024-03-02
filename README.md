@@ -5,7 +5,7 @@ simple_JS_loom
 - 簡単な手織りのパターンを作って、ローカルストレージにコードを記録できるツールです。
 
 ## ③DEMO
-- 
+- https://kapponazoo.github.io/simple_JS_loom/
 
 ## ④工夫した点・こだわった点
 

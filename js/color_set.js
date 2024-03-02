@@ -5,14 +5,14 @@ const colorSet = [
         "colorcode": "#165e83"
     },
     {
-        "name": "百入茶",
-        "rub": "ももしおちゃ",
-        "colorcode": "#1f3134"
+        "name": "浅縹",
+        "rub": "あさはなだ",
+        "colorcode": "#84b9cb"
     },
     {
-        "name": "赤墨",
-        "rub": "あかすみ",
-        "colorcode": "#3f312b"
+        "name": "鶸茶",
+        "rub": "ひわちゃ",
+        "colorcode": "#8c8861"
     },
     {
         "name": "藍海松茶",
@@ -27,7 +27,7 @@ const colorSet = [
     {
         "name": "浅紫",
         "rub": "あさむらさき",
-        "colorcode": "#ad7d4c"
+        "colorcode": "#c4a3bf"
     },
     {
         "name": "練色",
@@ -37,7 +37,7 @@ const colorSet = [
     {
         "name": "甚三紅",
         "rub": "じんざもみ",
-        "colorCode": "#ee827c"
+        "colorcode": "#ee827c"
     },
     {
         "name": "萱草色",

@@ -19,10 +19,10 @@ footer{
     text-align: center;
 }
 p{
-    font-size:200%;
+    font-size:1em;
     text-align: center;
     border-bottom:1px solid #fff;
-    height:200px;
+    height:1.6em;
 }
 ul{
     padding: 0;

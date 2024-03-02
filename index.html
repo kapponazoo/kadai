@@ -31,53 +31,56 @@
     <div id="WarpColor">
     <div id="WarpColorSet">
         <a class="btn btn-border" id="WarpColorSetBtn"><span>PUSH！</span></a>
-<span id="" class=""></span>
     </div> 
 
-        <div id="WarpColorResetbtn">リセット</div>
+    <div id="WarpColorResult"></div>
+    <!-- <div id="WarpColorResetbtn">リセット</div> -->
     </div>
 </section>
 <section id="Weft">
 <!--緯糸の選択-->
-<h2>緯糸の色を選んでください。緯糸は一色です。
+<h2>緯糸の色を選んでください。
 </h2>
 
-<div id="WeftColor">
-    <ul name="色名" id="WeftColorCode">
-        <li value="#ee827c">甚三紅 じんざもみ</li>           
-        <li value="#ad7d4c">香染 こうぞめ</li>
-        <li value="#56564b">藍海松茶 あいみるちゃ</li>          
-    </ul>
-    <div id="WeftColorAddbtn">経糸を追加</div>
-    <div id="WeftColorBSbtn">1本戻る</div>
-    <div id="WeftColorResetbtn">リセット</div>
-</div>
+<div id="WarpColor">
+    <div id="WeftColorSet">
+        <a class="btn btn-border" id="WeftColorSetBtn"><span>PUSH！</span></a>
+    </div> 
+    <div id="WeftColorResult"></div>
+    <!-- <div id="WeftColorResetbtn">リセット</div> -->
+    </div>
 </section>
 <section id="Heddle">
 <!--綜絖の選択-->
-    <h2>heddle0(開口)</h2>
+
+<h2>綜絖の設定</h2>
+
+    <h3>heddle0</h3>
+    <div id="heddle0"></div>
+    <h3>heddle1</h3>
     <div id="heddle1"></div>
-    <h2>heddle1</h2>
+    <h3>heddle2</h3>
     <div id="heddle2"></div>
-    <!-- <h2>heddle2</h2>
-    <div id="heddle2"></div> -->
+    <h3>heddle3</h3>
+    <div id="heddle3"></div>
+
 <!--緯糸の繰り返しの回数-->
-    <h2>長さの設定</h2>
+    <!-- <h2>長さの設定</h2>
     <div id="ClothLength"></div>
     <div id="WeftColorAddbtn">布の長さを設定</div>
 </section>
 <section id="CheckList">
 
 
-</section>
+</section> -->
 <section id="Result">
 <!--結果表示-->
     <h2>あなたの作ったパターンです</h2>
-
+<div id="ResultPattern"></div>
     <main style="display: none;">
+        <h2>コードの保存はこちら</h2>
         <textarea id="text_area"></textarea>
         <ul>
-            <li id="run">実行</li>
             <li id="save">保存</li>
             <li id="clear">削除</li>
         </ul>
@@ -124,14 +127,127 @@ $("#WarplengthBtn").on("click",function(){
 
 //経糸の色の定義
 
-let WarpColor ="";
+let WarpColor ="#ffffff";
 let WarpColorSet ="";
+let WarpColorName = ""
+let WarpColorRub = ""
+let WarpColorCode = ""
+let WarpColorCellId = ""
+
+for(let i=0; i<8; i++){
+    WarpColorName = colorSet[i].name;
+    WarpColorRub =  colorSet[i].rub;
+    WarpColorCode =  colorSet[i].colorcode;
+    WarpColorCellId = "WarpColorCell" + i;
+    // console.log("回:"+ i);
+    // console.log("名前:"+ WarpColorName);
+    // console.log("ルビ:"+ WarpColorRub);
+    // console.log("色コード:"+ WarpColorCode);
+    WarpColorSet += '<a class="btn btn-border" id="' + WarpColorCellId + '"><span style="background-color:' + WarpColorCode + ';">' + WarpColorName + '(' + WarpColorRub + ')</span></a>';
+    $("#WarpColorSet").html(WarpColorSet);
+}
+
+$("#WarpColorCell0 span").on("click",function(){
+    WarpColor = $("#WarpColorCell0 span").css("background-color");
+    $("#WarpColorResult").html('<span style="background-color:' + WarpColor + ';">あなたが選んだ経糸の色</span>');
+});
+$("#WarpColorCell1 span").on("click",function(){
+    WarpColor = $("#WarpColorCell1 span").css("background-color");
+    $("#WarpColorResult").html('<span style="background-color:' + WarpColor + ';">あなたが選んだ経糸の色</span>');
+});
+$("#WarpColorCell2 span").on("click",function(){
+    WarpColor = $("#WarpColorCell2 span").css("background-color");
+    $("#WarpColorResult").html('<span style="background-color:' + WarpColor + ';">あなたが選んだ経糸の色</span>');
+});
+$("#WarpColorCell3 span").on("click",function(){
+    WarpColor = $("#WarpColorCell3 span").css("background-color");
+    $("#WarpColorResult").html('<span style="background-color:' + WarpColor + ';">あなたが選んだ経糸の色</span>');
+});
+$("#WarpColorCell4 span").on("click",function(){
+    WarpColor = $("#WarpColorCell4 span").css("background-color");
+    $("#WarpColorResult").html('<span style="background-color:' + WarpColor + ';">あなたが選んだ経糸の色</span>');
+});
+$("#WarpColorCell5 span").on("click",function(){
+    WarpColor = $("#WarpColorCell5 span").css("background-color");
+    $("#WarpColorResult").html('<span style="background-color:' + WarpColor + ';">あなたが選んだ経糸の色</span>');
+});
+$("#WarpColorCell6 span").on("click",function(){
+    WarpColor = $("#WarpColorCell6 span").css("background-color");
+    $("#WarpColorResult").html('<span style="background-color:' + WarpColor + ';">あなたが選んだ経糸の色</span>');
+});
+$("#WarpColorCell7 span").on("click",function(){
+    WarpColor = $("#WarpColorCell7 span").css("background-color");
+    $("#WarpColorResult").html('<span style="background-color:' + WarpColor + ';">あなたが選んだ経糸の色</span>');
+});
+
+$("#HeddleColorSet span").on("click",function(){
+   
+    // console.log(WarpColor);
+   
+
+});
+
+
+
+//横糸の色の定義
+
+let WeftColor ="";
+let WeftColorSet ="";
+let WeftColorName = ""
+let WeftColorRub = ""
+let WeftColorCode = ""
+let WeftColorCellId = ""
+
+for(let i=0; i<8; i++){
+    WeftColorName = colorSet[i].name;
+    WeftColorRub =  colorSet[i].rub;
+    WeftColorCode =  colorSet[i].colorcode;
+    WeftColorCellId = "WeftColorCell" + i;
+    // console.log("回:"+ i);
+    // console.log("名前:"+ WeftColorName);
+    // console.log("ルビ:"+ WeftColorRub);
+    // console.log("色コード:"+ WeftColorCode);
+    WeftColorSet += '<a class="btn btn-border" id="' + WeftColorCellId + '"><span style="background-color:' + WeftColorCode + ';">' + WeftColorName + '(' + WeftColorRub + ')</span></a>';
+    $("#WeftColorSet").html(WeftColorSet);
+}
+
+$("#WeftColorCell0 span").on("click",function(){
+    WeftColor = $("#WeftColorCell0 span").css("background-color");
+    $("#WeftColorResult").html('<span style="background-color:' + WeftColor + ';">あなたが選んだ緯糸の色</span>');
+});
+$("#WeftColorCell1 span").on("click",function(){
+    WeftColor = $("#WeftColorCell1 span").css("background-color");
+    $("#WeftColorResult").html('<span style="background-color:' + WeftColor + ';">あなたが選んだ緯糸の色</span>');
+});
+$("#WeftColorCell2 span").on("click",function(){
+    WeftColor = $("#WeftColorCell2 span").css("background-color");
+    $("#WeftColorResult").html('<span style="background-color:' + WeftColor + ';">あなたが選んだ緯糸の色</span>');
+});
+$("#WeftColorCell3 span").on("click",function(){
+    WeftColor = $("#WeftColorCell3 span").css("background-color");
+    $("#WeftColorResult").html('<span style="background-color:' + WeftColor + ';">あなたが選んだ緯糸の色</span>');
+});
+$("#WeftColorCell4 span").on("click",function(){
+    WeftColor = $("#WeftColorCell4 span").css("background-color");
+    $("#WeftColorResult").html('<span style="background-color:' + WeftColor + ';">あなたが選んだ緯糸の色</span>');
+});
+$("#WeftColorCell5 span").on("click",function(){
+    WeftColor = $("#WeftColorCell5 span").css("background-color");
+    $("#WeftColorResult").html('<span style="background-color:' + WeftColor + ';">あなたが選んだ緯糸の色</span>');
+});
+$("#WeftColorCell6 span").on("click",function(){
+    WeftColor = $("#WeftColorCell6 span").css("background-color");
+    $("#WeftColorResult").html('<span style="background-color:' + WeftColor + ';">あなたが選んだ緯糸の色</span>');
+});
+$("#WeftColorCell7 span").on("click",function(){
+    WeftColor = $("#WeftColorCell7 span").css("background-color");
+    $("#WeftColorResult").html('<span style="background-color:' + WeftColor + ';">あなたが選んだ緯糸の色</span>');
+});
 
 
 
 //模様の最小ピースの定義
-const plain_piece1 = ["縦","横"];
-
+let plain_piece1 = [ '<span id="color01">■</span>' , '<span id="color02">■</span>'];
 
 //経糸緯糸のボリュームの定義
 let WarpSet = "20";　/*経糸*/
@@ -144,19 +260,33 @@ let heddle_WarpSet_Loop = WarpSet/plain_piece1.length;
 
 //綜絖の展開
 
-//開口の定義
 let heddle0 = "";
-
-
-
 let heddle1 = "";
-for(let i=0; i<10; i++){
-    heddle1 +=  plain_piece1[0] + plain_piece1[1] ;
-}
 let heddle2 = "";
+let heddle3 = "";
+
+
 for(let i=0; i<10; i++){
-    heddle2 +=  plain_piece1[1] + plain_piece1[0] ;
+    heddle0 +=  plain_piece1[0] + plain_piece1[1] ;
+    heddle1 +=  plain_piece1[1] + plain_piece1[0] ;
+    heddle2 +=  plain_piece1[0] + plain_piece1[1] ;
+    heddle3 +=  plain_piece1[1] + plain_piece1[0] ;
 }
+
+// for(let i=0; i<10; i++){
+
+// }
+
+// for(let i=0; i<10; i++){
+
+// }
+
+// for(let i=0; i<10; i++){
+    
+// }
+
+//綜絖0の表示
+$("#heddle0").html(heddle0);
 
 //綜絖1の表示
 $("#heddle1").html(heddle1);
@@ -164,12 +294,16 @@ $("#heddle1").html(heddle1);
 //綜絖2の表示
 $("#heddle2").html(heddle2);
 
+//綜絖3の表示
+$("#heddle3").html(heddle3);
+
+
 let Result = "";
 for(let i=0; i<20; i++){
 
-    Result += heddle1 +"<br>"+ heddle2+"<br>" ;
+    Result += heddle0 + "<br>" + heddle1 + "<br>" + heddle2 + "<br>" + heddle3 + "<br>" ;
 }
-$("#Result").html(Result);
+$("#text_area").html(Result);
 
    </script>
   
